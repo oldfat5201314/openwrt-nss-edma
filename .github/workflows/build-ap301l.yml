@@ -2,6 +2,11 @@ name: Build OpenWrt for HOS AP301L (IPQ5018)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - c3po-tag-8021q
+    paths:
+      - '.github/workflows/build-ap301l.yml'
 
 permissions:
   contents: read
@@ -34,7 +39,7 @@ jobs:
             build-essential clang flex bison g++ g++-multilib g++-aarch64-linux-gnu \
             g++-arm-linux-gnueabihf gettext git libfuse-dev libncurses5-dev \
             libncursesw5-dev libpython3-dev libssl-dev llvm rsync unzip zlib1g-dev \
-            file wget awk libelf-dev ecj java-common python3-distutils
+            file wget gawk libelf-dev ecj java-common
 
       - name: Add AP301L device tree
         run: |
