@@ -104,9 +104,10 @@ jobs:
             'CONFIG_PACKAGE_mii-tool=y' \
             'CONFIG_PACKAGE_mdio-tools=y' \
             'CONFIG_BUSYBOX_CONFIG_DEVMEM=y' \
+            'CONFIG_IPQ_CMN_PLL=y' \
             'CONFIG_KERNEL_DEBUG_FS=y' > .config
           make defconfig
-          grep -E 'hos_ap301l|luci-app-ssr-plus|luci-app-vnt|^CONFIG_PACKAGE_vnt=' .config
+          grep -E 'hos_ap301l|luci-app-ssr-plus|luci-app-vnt|^CONFIG_PACKAGE_vnt=|^CONFIG_IPQ_CMN_PLL=y' .config
 
       - name: Build
         run: |
